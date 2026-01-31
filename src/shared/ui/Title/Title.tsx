@@ -1,0 +1,38 @@
+import React, { ElementType, forwardRef } from 'react';
+import clsx from 'clsx';
+
+import styles from './Title.module.scss';
+
+export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+export interface TitleProps {
+	children: React.ReactNode;
+	tag?: HeadingTag;
+	align?: 'Left' | 'Center' | 'Right';
+	className?: string;
+	id?: string;
+	visuallyHidden?: boolean;
+}
+
+export const Title = forwardRef<HTMLElement, TitleProps>(
+	({ tag = 'h1', align = 'Center', children, className, id, visuallyHidden = false }, ref) => {
+		const Tag: ElementType = tag;
+
+		return (
+			<Tag
+				ref={ref as never}
+				id={id}
+				className={clsx(
+					styles.root,
+					styles[`align${align}`],
+					className,
+					visuallyHidden && styles.visuallyHidden
+				)}
+			>
+				{children}
+			</Tag>
+		);
+	}
+);
+
+Title.displayName = 'Title';
