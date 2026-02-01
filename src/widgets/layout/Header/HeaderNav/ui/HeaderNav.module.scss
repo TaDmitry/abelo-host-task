@@ -1,0 +1,99 @@
+.navbarWrapper {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	padding: 16px 24px;
+	border-bottom: 2px solid #00000024;
+}
+
+.navbar {
+	scrollbar-width: none;
+
+	display: flex;
+	align-items: center;
+
+	width: 100%;
+	max-width: var(--container-max-width);
+}
+
+.navList {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.navItem {
+	&:last-child {
+		padding: 0 20px 0 0;
+	}
+}
+
+.navButton {
+	display: flex;
+	align-items: center;
+
+	border-radius: 2px;
+
+	font-size: 14px;
+	font-weight: 500;
+	color: #474747;
+
+	transition:
+		transform 0.3s ease,
+		border 0.3s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:focus-visible {
+		transform: scale(1.05);
+		outline: 2px solid var(--accent-classic);
+		outline-offset: 3px;
+	}
+}
+
+.dropdown {
+	position: absolute;
+	z-index: 30;
+	top: 100%;
+	left: 0;
+
+	width: 100%;
+	padding: 12px 0;
+	border-top: 2px solid #00000024;
+	border-bottom: 2px solid #00000024;
+
+	background: var(--white);
+
+	.navList {
+		flex-direction: column;
+		gap: 10px;
+		align-items: flex-start;
+		padding: 0 24px;
+	}
+}
+
+.chevron {
+	transform: rotate(-90deg);
+	transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+	transform: rotate(90deg);
+}
+
+@media (width <=768px) {
+	.navList {
+		gap: 12px;
+	}
+}

@@ -39,8 +39,6 @@ export default {
 		'scss/at-mixin-argumentless-call-parentheses': 'never',
 		'scss/comment-no-loud': null,
 
-		'order/properties-order': null,
-
 		'declaration-block-no-duplicate-properties': [
 			true,
 			{

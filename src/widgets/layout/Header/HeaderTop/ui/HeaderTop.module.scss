@@ -1,0 +1,104 @@
+.container {
+	position: relative;
+	z-index: 10;
+
+	display: flex;
+	justify-content: center;
+
+	padding: 8px 24px;
+
+	background-color: #1e1f29;
+}
+
+.headerTop {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	max-width: var(--container-max-width);
+}
+
+.contactList {
+	display: flex;
+	gap: 15px;
+}
+
+.contactBtn {
+	display: inline-flex;
+	align-items: center;
+
+	border-radius: 2px;
+
+	font-size: 14px;
+	color: var(--white);
+
+	transition:
+		transform 0.3s ease,
+		border 0.3s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:focus-visible {
+		transform: scale(1.05);
+		outline: 2px solid var(--accent-classic);
+		outline-offset: 3px;
+	}
+}
+
+.icon {
+	width: 16px;
+	color: var(--accent-classic);
+}
+
+.iconArrow {
+	width: 20px;
+	color: var(--accent-classic);
+}
+
+.spacer {
+	display: flex;
+	align-items: center;
+}
+
+.dropdown {
+	position: absolute;
+	z-index: 30;
+	top: 100%;
+	left: 0;
+
+	width: 100%;
+	padding: 12px 24px;
+
+	background-color: #1e1f29;
+}
+
+.contactListDropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 0 auto;
+}
+
+.overlay {
+	position: fixed;
+	z-index: 20;
+	inset: 0;
+
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	background: transparent;
+}
+
+.chevron {
+	transform: rotate(-90deg);
+	transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+	transform: rotate(90deg);
+}
