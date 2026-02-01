@@ -1,67 +1,176 @@
-# AI Legal Assistant
+# Abelo Host - тестовое задание
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Данный репозиторий содержит реализацию тестового задания на позицию Frontend-разработчика.
+Приложение демонстрирует базовую архитектуру frontend-проекта, авторизацию пользователей с
+использованием JWT и отображение списка товаров, получаемых из публичного API.
 
-## Getting Started
+Проект сфокусирован на корректной архитектуре, чистоте кода и соблюдении современных
+frontend-подходов.
 
-First, run the development server:
+---
 
-## 🚀 Quick Start
+## Стек технологий
+
+- TypeScript - строгая типизация и повышение надежности кода
+- Next.js (App Router) - серверный и клиентский рендеринг, современный роутинг
+- React - компонентный подход
+- Zustand - управление глобальным состоянием
+- Axios - работа с HTTP-запросами
+- SCSS Modules - изолированные стили компонентов
+- clsx - удобная работа с CSS-классами
+- ESLint / Prettier / Stylelint - контроль качества кода и стилей
+- Docker - контейнеризация приложения
+
+---
+
+## Архитектура проекта
+
+- Использован подход Feature-Sliced Design (FSD)
+- Логика, состояние и UI строго разделены
+- Каждая фича инкапсулирует свою бизнес-логику
+- Zustand используется как единый источник состояния
+- Роутинг реализован через Next.js App Router
+- Архитектура подготовлена к масштабированию и production-развитию
+
+---
+
+## Запуск проекта
+
+### 1. Установка зависимостей
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
-npm run dev
-# При наличи проблем с сборкой можно потключить turbopack путом пересивывания package.json по примеру ниже
-# "dev": "next dev --turbopack" > "dev": "next dev",
-
-# Lint all files
-npm run lint
-
-# Format all files (before build)
-npm run format
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Устанавливает все зависимости проекта, указанные в package.json. Без выполнения этой команды проект
+не сможет быть запущен.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the
-file.
+```bash
+npm run prepare
+```
 
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to
-automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Запускает подготовительные скрипты, в том числе инициализацию Husky. Необходим для корректной работы
+Git-хуков.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Запуск проекта в режиме разработки
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback
-and contributions are welcome!
+Запускает приложение в режиме разработки. Используется для локальной работы, отладки и проверки
+изменений. По умолчанию приложение будет доступно на <http://localhost:3000>.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+### 3. Проверка качества кода
 
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-for more details.
+```bash
+npm run lint
+```
 
-Выполнить в конлоси для того что бы Git выполнил все husky хуки если ты не создавал их в ручьную
+Запускает ESLint и проверяет TypeScript/JavaScript код на ошибки, нарушения правил и потенциальные
+проблемы.
+
+```bash
+npm run format:all
+```
+
+Запускает Prettier и приводит код к единому стилю форматирования. Используется для поддержания
+консистентности кода в проекте.
+
+```bash
+npm run stylelint
+```
+
+Проверяет SCSS-стили на соответствие правилам Stylelint. Помогает поддерживать аккуратную и читаемую
+структуру стилей.
+
+---
+
+### 4. Сборка и запуск production-версии
+
+```bash
+npm run build
+```
+
+Собирает production-версию приложения. На этом этапе выполняется оптимизация, проверка типов и
+генерация билда.
+
+```bash
+npm run start
+```
+
+Запускает уже собранную production-версию приложения. Используется для локального тестирования
+production-сборки.
+
+---
+
+### 5. Husky (Git hooks)
+
+Если Husky-хуки не создавались вручную или отсутствуют права на выполнение, необходимо выполнить
+следующую команду:
 
 ```bash
 chmod +x .husky/commit-msg .husky/pre-commit .husky/pre-push
 ```
+
+---
+
+## Docker
+
+```bash
+docker build -t abelo-host-task .
+```
+
+Собирает Docker-образ приложения. Используется для изоляции окружения и упрощения деплоя.
+
+```bash
+docker run -p 3000:3000 abelo-host-task
+```
+
+Запускает контейнер с приложением и пробрасывает порт 3000. После запуска приложение будет доступно
+на <http://localhost:3000>
+
+---
+
+## Ответы на вопросы из тестового задания
+
+### 1. Какие сложности возникли при выполнении тестового задания?
+
+Технических сложностей в процессе разработки не возникало. Однако из-за личных дел в выходные часть
+работы пришлось выполнять в вечернее время, чтобы уложиться в согласованные сроки
+
+---
+
+### 2. Как вы оцениваете полноту и качество своей реализации?
+
+Реализация представляет собой хорошую базу проекта, пускай и есть что доводить до ума
+
+---
+
+### 3. Если бы это был production-проект и было больше времени
+
+На мой взгляд
+
+- Реализация регистрации пользователей и refresh-токенов
+- Подключение реального backend-сервиса
+- Защита маршрутов через middleware
+- Добавление E2E-тестирования
+- Skeleton-загрузки вместо текстовых состояний
+- Полная переработка UI/UX для улучшения пользовательского опыта
+- Оптимизация SCSS: общие переменные, миксины, устранение дублирования
+- Реализация темной и светлой темы
+- Мультиязычность через next-intl
+- Личный кабинет пользователя с корзиной и оплатой
+- Доведение всех ключевых функций до production-уровня
+
+---
+
+### 4. Использовали ли вы ИИ при выполнении задания?
+
+Безусловно, он помогает быстро сформировать основу чего-либо, от стилей до верстки, после чего код
+можно доработать вручную: подключаются собственные переменные, улучшается архитектура и реализуется
+проектная логика

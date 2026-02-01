@@ -1,0 +1,21 @@
+.footer {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	padding: 0 16px;
+	padding: 8px 24px;
+	border-top: 3px solid var(--accent-classic);
+
+	font-size: 13px;
+	color: var(--white);
+
+	background-color: #1e1f29;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	max-width: var(--container-max-width);
+}

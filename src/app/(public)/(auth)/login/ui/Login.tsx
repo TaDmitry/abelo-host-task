@@ -1,3 +1,9 @@
-export default function LoginPage() {
-	return <main>Login</main>;
+import { LoginSection } from '@/widgets/auth/LoginSection';
+
+export default function Login() {
+	return (
+		<section>
+			<LoginSection />
+		</section>
+	);
 }

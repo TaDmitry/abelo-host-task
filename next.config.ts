@@ -24,7 +24,7 @@ function readTsConfig(): Record<string, unknown> {
 
 		return typeof parsed === 'object' && parsed !== null ? parsed : {};
 	} catch (err) {
-		console.warn('Не удалось прочитать tsconfig.json:', err);
+		console.warn('Failed to read tsconfig.json:', err);
 
 		return {};
 	}
@@ -35,6 +35,8 @@ const baseUrl =
 	((tsconfig?.compilerOptions as Record<string, unknown>)?.baseUrl as string | undefined) ?? '.';
 
 const nextConfig: NextConfig & { turbopack?: Record<string, unknown> } = {
+	output: 'standalone',
+
 	sassOptions: {
 		includePaths: [path.resolve(process.cwd(), baseUrl)],
 	},
