@@ -1,0 +1,94 @@
+.form {
+	display: grid;
+	gap: 14px;
+	width: 100%;
+}
+
+.field {
+	display: grid;
+	gap: 6px;
+}
+
+.label {
+	font-size: 14px;
+	opacity: 0.85;
+}
+
+.input {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid rgb(0 0 0 / 12%);
+	border-radius: 6px;
+
+	background: #fff;
+
+	transition:
+		transform 0.3s ease,
+		border 0.3s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:focus-visible {
+		transform: scale(1.05);
+		outline: 2px solid var(--accent-classic);
+		outline-offset: 3px;
+	}
+}
+
+.inputError {
+	border-color: #da2323;
+}
+
+.errorText {
+	min-height: 18px;
+	font-size: 13px;
+	color: #da2323;
+}
+
+.serverError {
+	padding: 10px 12px;
+	border: 1px solid rgb(218 35 35 / 35%);
+	border-radius: 8px;
+
+	font-size: 14px;
+	color: #da2323;
+
+	background: rgb(218 35 35 / 7%);
+}
+
+.button {
+	cursor: pointer;
+
+	width: 100%;
+	padding: 12px 14px;
+	border: none;
+	border-radius: 8px;
+
+	font-weight: 600;
+	color: #fff;
+
+	background: #171a22;
+
+	transition: opacity 0.15s ease;
+	transition:
+		transform 0.3s ease,
+		border 0.3s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:focus-visible {
+		transform: scale(1.05);
+		outline: 2px solid var(--accent-classic);
+		outline-offset: 3px;
+	}
+}
+
+.demoCredentials {
+	font-size: 12px;
+	line-height: 1.4;
+	opacity: 0.7;
+}

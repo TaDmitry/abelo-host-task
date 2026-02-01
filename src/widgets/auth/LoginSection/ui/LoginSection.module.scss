@@ -1,0 +1,16 @@
+.wrapper {
+	display: grid;
+	place-items: center;
+	padding: 40px 16px;
+}
+
+.card {
+	width: 100%;
+	max-width: 520px;
+	padding: 22px 22px 18px;
+}
+
+.title {
+	margin-bottom: 14px;
+	font-size: 24px;
+}

@@ -11,11 +11,13 @@ import styles from './HeaderNav.module.scss';
 type NavItem = { text: string; exact?: boolean };
 
 const items: NavItem[] = [
-	{ text: 'Дашборд', exact: true },
-	{ text: 'Профиль' },
-	{ text: 'Заказы' },
-	{ text: 'Платежи' },
-	{ text: 'Трансляция' },
+	{ text: 'Home', exact: true },
+	{ text: 'Hot Deals' },
+	{ text: 'Categorise' },
+	{ text: 'Laptops' },
+	{ text: 'Smartphones' },
+	{ text: 'Cameras' },
+	{ text: 'Accessories' },
 ];
 
 const slugify = (s: string) =>
@@ -64,7 +66,7 @@ export const HeaderNav = () => {
 	const NavList = (
 		<ul className={styles.navList}>
 			{items.map(({ text }) => {
-				const href = '/' + slugify(text);
+				const href = text === 'Home' ? '/' : '/' + slugify(text);
 
 				return (
 					<li
@@ -93,15 +95,15 @@ export const HeaderNav = () => {
 					<Button
 						text='Меню'
 						onClick={toggle}
-						aria-expanded={isOpen}
-						aria-controls={dropdownId}
-						className={styles.navButton}
 						icon={
 							<Icon
 								icon='ChevronBackOutline'
 								className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
 							/>
 						}
+						aria-expanded={isOpen}
+						aria-controls={dropdownId}
+						className={styles.navButton}
 					/>
 				) : (
 					NavList

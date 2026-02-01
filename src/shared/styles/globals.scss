@@ -101,7 +101,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+label {
 	font-family: Geist, Arial, sans-serif;
 }
 
@@ -110,6 +111,7 @@ span,
 samp,
 li,
 ol,
-a {
+a,
+input {
 	font-family: Rubik, Arial, sans-serif;
 }
