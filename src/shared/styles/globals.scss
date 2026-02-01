@@ -112,19 +112,4 @@ li,
 ol,
 a {
 	font-family: Rubik, Arial, sans-serif;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 1.5;
-}
-
-@media (width <=768px) {
-	p,
-	span,
-	samp,
-	li,
-	ol,
-	a {
-		font-size: 16px;
-		line-height: 1.2;
-	}
 }
