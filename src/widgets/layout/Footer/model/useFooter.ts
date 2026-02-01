@@ -1,4 +1,3 @@
-// ...existing code...
 'use client';
 
 import { selectUser, useUserStore } from '@/entities/user';
@@ -9,11 +8,11 @@ export const useFooter = () => {
 
 	if (!user.isAuth) {
 		return {
-			text: `${year} г`,
+			text: `${year}g`,
 		};
 	}
 
 	return {
-		text: `${year}г · Logged as ${user.email}`,
+		text: `${year}g · Logged as ${user.email}`,
 	};
 };
