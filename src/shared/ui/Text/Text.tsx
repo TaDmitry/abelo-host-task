@@ -13,11 +13,12 @@ export interface TextProps {
 	noWrap?: boolean;
 	truncate?: boolean;
 	id?: string;
+	role?: string;
 }
 
 export const Text = forwardRef<HTMLElement, TextProps>(
 	(
-		{ as = 'p', children, className, align = 'Left', noWrap = false, truncate = false, id },
+		{ as = 'p', children, className, align = 'Left', noWrap = false, truncate = false, id, role },
 		ref
 	) => {
 		const Tag: ElementType = as;
@@ -32,6 +33,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
 					noWrap && styles.noWrap,
 					truncate && styles.truncate
 				)}
+				role={role}
 			>
 				{children}
 			</Tag>

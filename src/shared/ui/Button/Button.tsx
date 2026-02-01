@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -24,12 +26,15 @@ interface AnchorProps extends CommonProps {
 
 interface ButtonOnlyProps extends CommonProps {
 	href?: undefined;
+	type?: 'button' | 'submit' | 'reset';
 }
 
 type ButtonProps = AnchorProps | ButtonOnlyProps;
 
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-	({ text, icon, iconPosition = 'left', className, disabled = false, href, ...rest }, ref) => {
+	(props, ref) => {
+		const { text, icon, iconPosition = 'left', className, disabled = false, href, ...rest } = props;
+
 		const classes = clsx(
 			styles.button,
 			className,
@@ -46,6 +51,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 				{icon}
 			</span>
 		) : null;
+
 		const LabelNode = text ? <span className={styles.label}>{text}</span> : null;
 
 		const content =
@@ -72,7 +78,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 						href={href}
 						target='_blank'
 						rel='noopener noreferrer'
-						{...rest}
+						{...(rest as Omit<AnchorProps, 'href'>)}
 					>
 						{content}
 					</a>
@@ -84,20 +90,22 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 					href={href}
 					className={classes}
 					ref={ref as React.Ref<HTMLAnchorElement>}
-					{...rest}
+					{...(rest as Omit<AnchorProps, 'href'>)}
 				>
 					{content}
 				</Link>
 			);
 		}
 
+		const { type = 'button', ...buttonRest } = rest as Omit<ButtonOnlyProps, 'href'>;
+
 		return (
 			<button
 				ref={ref as React.Ref<HTMLButtonElement>}
-				type='button'
+				type={type}
 				className={classes}
 				disabled={disabled}
-				{...rest}
+				{...buttonRest}
 			>
 				{content}
 			</button>

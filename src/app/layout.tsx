@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { AuthBootstrap } from './providers/AuthBootstrap';
+
 import '@styles/globals.scss';
 
 type Props = {
@@ -24,7 +26,10 @@ export default async function RootLayout({ children }: Props) {
 	return (
 		<html lang='ru'>
 			<body>
-				<main>{children}</main>
+				<main>
+					<AuthBootstrap />
+					{children}
+				</main>
 			</body>
 		</html>
 	);
