@@ -1,13 +1,13 @@
 'use client';
 
-import { selectUser, useUserStore } from '@/entities/user';
+import { LatestProducts } from '@/widgets/products/LatestProducts';
+
+import styles from './HomePage.module.scss';
 
 export default function HomePage() {
-	const user = useUserStore(selectUser);
-
 	return (
-		<section>
-			<div>{user.isAuth ? `User: ${user.username}` : 'Guest'}</div>
+		<section className={styles.page}>
+			<LatestProducts />;
 		</section>
 	);
 }
