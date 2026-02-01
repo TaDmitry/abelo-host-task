@@ -7,7 +7,12 @@ import type { User } from './types';
 type UserState = {
 	user: User;
 	setGuest: () => void;
-	setAuth: (payload: { username: string; firstName: string; lastName: string }) => void;
+	setAuth: (payload: {
+		username: string;
+		email: string;
+		firstName: string;
+		lastName: string;
+	}) => void;
 };
 
 export const useUserStore = create<UserState>((set) => ({
@@ -15,12 +20,13 @@ export const useUserStore = create<UserState>((set) => ({
 
 	setGuest: () => set({ user: { role: 'guest', isAuth: false } }),
 
-	setAuth: ({ username, firstName, lastName }) =>
+	setAuth: ({ username, email, firstName, lastName }) =>
 		set({
 			user: {
 				role: 'user',
 				isAuth: true,
 				username,
+				email,
 				firstName,
 				lastName,
 			},

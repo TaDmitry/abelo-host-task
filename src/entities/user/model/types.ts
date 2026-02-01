@@ -8,7 +8,10 @@ export type GuestUser = {
 export type AuthUser = {
 	role: 'user';
 	isAuth: true;
+
 	username: string;
+	email: string;
+
 	firstName: string;
 	lastName: string;
 };

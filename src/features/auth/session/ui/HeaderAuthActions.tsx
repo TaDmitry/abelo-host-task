@@ -22,7 +22,7 @@ export const HeaderAuthActions: React.FC<Props> = ({ className }) => {
 			<Button
 				icon={
 					<Icon
-						icon='ChevronBackOutline'
+						icon='User'
 						className={clsx(styles.iconArrow, styles.chevron && styles.chevronOpen)}
 					/>
 				}

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 
+import { Footer } from '@/widgets/layout/Footer';
+import { Header } from '@/widgets/layout/Header';
+
 import { AuthBootstrap } from './providers/AuthBootstrap';
 
 import '@styles/globals.scss';
@@ -26,10 +29,12 @@ export default async function RootLayout({ children }: Props) {
 	return (
 		<html lang='ru'>
 			<body>
+				<Header />
 				<main>
 					<AuthBootstrap />
 					{children}
 				</main>
+				<Footer />
 			</body>
 		</html>
 	);
