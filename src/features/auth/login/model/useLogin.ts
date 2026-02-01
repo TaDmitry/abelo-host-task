@@ -27,6 +27,7 @@ export const useLogin = () => {
 
 			setAuth({
 				username: result.user.username,
+				email: result.user.email,
 				firstName: result.user.firstName,
 				lastName: result.user.lastName,
 			});

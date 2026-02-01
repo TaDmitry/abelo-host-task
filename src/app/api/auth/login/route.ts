@@ -53,7 +53,12 @@ export async function POST(req: Request) {
 
 	const res = NextResponse.json({
 		ok: true,
-		user: { username, firstName: 'Demo', lastName: 'User' },
+		user: {
+			username,
+			email: `${username}@example.com`,
+			firstName: 'Demo',
+			lastName: 'User',
+		},
 	});
 
 	res.cookies.set({

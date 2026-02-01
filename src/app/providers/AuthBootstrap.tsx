@@ -22,6 +22,7 @@ export const AuthBootstrap = () => {
 
 				setAuth({
 					username: me.username,
+					email: me.email,
 					firstName: me.firstName,
 					lastName: me.lastName,
 				});

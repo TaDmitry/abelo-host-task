@@ -12,6 +12,7 @@ export async function GET() {
 		isAuth: true,
 		role: 'user' as const,
 		username: 'demo',
+		email: 'demo@example.com',
 		firstName: 'Demo',
 		lastName: 'User',
 	});
